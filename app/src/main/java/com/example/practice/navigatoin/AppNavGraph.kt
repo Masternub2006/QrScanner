@@ -14,12 +14,12 @@ import com.example.practice.ui.screen.scanner.ScannerScreen
 @Composable
 fun AppNavGraph()
 {
-
     val navController = rememberNavController()
-
-    Scaffold(bottomBar = { BottomBar(navController) }) { padding ->
-
-        NavHost(navController = navController, startDestination = "scanner", modifier = Modifier.padding(padding)) {
+    Scaffold(bottomBar = { BottomBar(navController) })
+    {
+        padding ->
+        NavHost(navController = navController, startDestination = "scanner", modifier = Modifier.padding(padding))
+        {
             composable("scanner") { ScannerScreen() }
             composable("generator") { GeneratorScreen() }
         }

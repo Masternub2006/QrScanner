@@ -26,15 +26,18 @@ fun GeneratorScreen(viewModel: GeneratorViewModel = viewModel())
     val context = LocalContext.current
     var text by remember { mutableStateOf("") }
 
-    Column(modifier = Modifier.padding(16.dp)) {
+    Column(modifier = Modifier.padding(16.dp))
+    {
 
         TextField(value = text,
             onValueChange = { text = it },
             label = { Text("Введите текст") })
 
-        Button(onClick = {
+        Button(onClick =
+        {
             viewModel.generate(text)
-        }) {
+        })
+        {
             Text("Создать")
         }
 
@@ -42,9 +45,11 @@ fun GeneratorScreen(viewModel: GeneratorViewModel = viewModel())
             Image(bitmap = it.asImageBitmap(),
                 contentDescription = null)
 
-            Button(onClick = {
+            Button(onClick =
+            {
                 ImageStorage.save(context, it)
-            }) {
+            })
+            {
                 Text("Сохранить")
             }
         }
