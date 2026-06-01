@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import android.widget.Toast
 import com.example.practice.data.storage.ImageStorage
 import com.example.practice.viewmodel.GeneratorViewModel
 
@@ -44,10 +45,14 @@ fun GeneratorScreen(viewModel: GeneratorViewModel = viewModel())
         viewModel.bitmap?.let {
             Image(bitmap = it.asImageBitmap(),
                 contentDescription = null)
-
             Button(onClick =
             {
                 ImageStorage.save(context, it)
+                Toast.makeText(
+                    context,
+                    "QR-код сохранён в галерею",
+                    Toast.LENGTH_SHORT
+                ).show()
             })
             {
                 Text("Сохранить")
